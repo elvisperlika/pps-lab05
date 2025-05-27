@@ -25,8 +25,11 @@ class LogicsImpl(private val size: Int) extends Logics:
     for
       dirX <- -1 to 1
       dirY <- -1 to 1
-      if dirX != 0 || dirY != 0
-    do points = Cons((initPoint._1 + offset * dirX, initPoint._2 + offset * dirY), points)
+      if !(dirX == 0 && dirY == 0)
+    do {
+      println(dirX + " -- " + dirY)
+      points = Cons((initPoint._1 + offset * dirX, initPoint._2 + offset * dirY), points)
+    }
     offset += 1
   }
 
